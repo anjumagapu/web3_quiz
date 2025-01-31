@@ -15,9 +15,9 @@ interface ResultsProps {
 }
 
 export default function Results({ questions, userAnswers, onRestart }: ResultsProps) {
-  const correctAnswers = questions.reduce((acc, question, index) => {
-    return question.correctAnswer === userAnswers[index] ? acc + 1 : acc
-  }, 0)
+  const correctAnswers = questions.filter(
+    (q, i) => q.correctAnswer === userAnswers[i]
+  ).length
 
   const score = Math.round((correctAnswers / questions.length) * 100)
 

@@ -53,48 +53,32 @@ export default function Question({ question, onAnswer, questionNumber, totalQues
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <div className="px-4 py-3 text-center">
-        <h1 className="text-white text-xl font-semibold">Web3 101 Quiz</h1>
-      </div>
+      
 
       {/* Question Card */}
       <div className="px-4 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-3xl p-6 shadow-lg mb-4"
+          exit={{ opacity: 0, y: -20 }}
+          className="bg-white rounded-3xl p-8 shadow-lg mb-6"
         >
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-gray-500">
-              Question {questionNumber}/{totalQuestions}
-            </span>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-              <div
-                className="bg-[#FF69B4] h-2.5 rounded-full transition-all duration-300 ease-in-out"
-                style={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
-              ></div>
-            </div>
+          <div className="mb-6">
+            <h2 className="text-gray-500 mb-2">Question {questionNumber}/{totalQuestions}</h2>
+            <h3 className="text-2xl font-bold text-gray-900">{question.question}</h3>
           </div>
-
-          <h2 className="text-xl font-medium mb-6">{question.question}</h2>
-
-          <div className="space-y-3">
-            {question.options.map((option, index) => (
-              <motion.button
+          
+          <div className="space-y-4">
+            {question.options.map((option) => (
+              <button
                 key={option}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
                 onClick={() => handleOptionClick(option)}
-                className={`w-full p-4 text-left border rounded-2xl transition-all duration-200 flex justify-between items-center ${getOptionStyle(option)}`}
-                disabled={isAnswered}
+                className="w-full text-left p-4 rounded-xl border-2 border-gray-200 
+                         hover:border-[#4A4AF4] hover:bg-blue-50 transition-all duration-200
+                         text-gray-700 font-medium"
               >
-                <span className="font-medium">{option}</span>
-                {isAnswered && option === question.correctAnswer && <Check className="w-5 h-5 text-[#2D8B72]" />}
-                {isAnswered && option === selectedAnswer && selectedAnswer !== question.correctAnswer && (
-                  <X className="w-5 h-5 text-[#FF4777]" />
-                )}
-              </motion.button>
+                {option}
+              </button>
             ))}
           </div>
 
@@ -124,7 +108,7 @@ export default function Question({ question, onAnswer, questionNumber, totalQues
       </div>
 
       {/* Next Button */}
-      <div className="px-4 pb-2">
+      <div className="px-4 pb-8">
         <button
           className={`w-full py-4 rounded-2xl font-medium transition-all duration-200 ${
             isAnswered ? "bg-[#FF69B4] text-white" : "bg-gray-200 text-gray-400 cursor-not-allowed"
@@ -134,6 +118,18 @@ export default function Question({ question, onAnswer, questionNumber, totalQues
         >
           Next Question
         </button>
+      </div>
+
+      {/* LinkedIn Link */}
+      <div className="text-center pb-8 text-white/80">
+        <a 
+          href="https://www.linkedin.com/in/uma-magapu-077100189/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-white transition-colors duration-200"
+        >
+          built by uma magapu
+        </a>
       </div>
     </div>
   )
