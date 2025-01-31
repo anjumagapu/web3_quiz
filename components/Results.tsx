@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import confetti from "canvas-confetti"
 import { useEffect } from "react"
 import { Trophy, RefreshCw } from "lucide-react"
 
@@ -22,23 +21,13 @@ export default function Results({ questions, userAnswers, onRestart }: ResultsPr
 
   const score = Math.round((correctAnswers / questions.length) * 100)
 
-  useEffect(() => {
-    if (score >= 60) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      })
-    }
-  }, [score])
-
   return (
     <div className="flex flex-col min-h-screen">
       <div className="px-4 py-3">
         <h1 className="text-white text-xl font-semibold">Quiz Complete!</h1>
       </div>
 
-      <div className="flex-1 px-4 pb-4 flex flex-col">
+      <div className="px-4 pb-4 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

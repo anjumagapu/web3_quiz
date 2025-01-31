@@ -58,7 +58,7 @@ export default function Question({ question, onAnswer, questionNumber, totalQues
       </div>
 
       {/* Question Card */}
-      <div className="flex-1 px-4 pb-4 flex flex-col">
+      <div className="px-4 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function Question({ question, onAnswer, questionNumber, totalQues
       </div>
 
       {/* Next Button */}
-      <div className="px-4 pb-2 mt-auto">
+      <div className="px-4 pb-2">
         <button
           className={`w-full py-4 rounded-2xl font-medium transition-all duration-200 ${
             isAnswered ? "bg-[#FF69B4] text-white" : "bg-gray-200 text-gray-400 cursor-not-allowed"
