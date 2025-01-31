@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Web3 Quiz',
-  description: 'Learn Web3 concepts through an interactive quiz',
+  description: 'A quiz application for Web3',
 }
 
 export default function RootLayout({
