@@ -16,13 +16,10 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#4A4AF4",
+          dark: "#FF4777",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
+        secondary: "#FF69B4",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -53,8 +50,6 @@ const config: Config = {
           DEFAULT: "#FFB1C5",
           dark: "#FF4777",
         },
-        primary: "#4A4AF4",
-        secondary: "#FF69B4",
       },
       borderRadius: {
         lg: "var(--radius)",
